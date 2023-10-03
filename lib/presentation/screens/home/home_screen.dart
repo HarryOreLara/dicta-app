@@ -25,7 +25,23 @@ class _HomeView extends StatelessWidget {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Column(
-        children: [_CustomClipperHome(size: size)],
+        children: [
+          _CustomClipperHome(size: size),
+          const SizedBox(
+            height: 25.0,
+          ),
+          InformationSlideshow(),
+          const SizedBox(
+            height: 25.0,
+          ),
+          const InformationHorizontalLisview(),
+          const SizedBox(
+            height: 10.0,
+          ),
+          const ListCards(),
+          const ListCards(),
+          const ListCards(),
+        ],
       ),
     );
   }
@@ -44,11 +60,11 @@ class _CustomClipperHome extends StatelessWidget {
     return ClipPath(
       clipper: OvalClipper(),
       child: Container(
-        decoration: BoxDecoration(
-            gradient: const LinearGradient(colors: [
-          Color.fromARGB(255, 0, 0, 0),
-          Color.fromARGB(255, 0, 0, 0)
-        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                colors: [Colors.amberAccent, Colors.redAccent],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomCenter)),
         height: 200,
         child: Stack(
           alignment: Alignment.centerLeft,
