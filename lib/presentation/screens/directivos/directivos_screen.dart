@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ServiciosScreen extends StatelessWidget {
-  const ServiciosScreen({super.key});
+class DirectivosScreen extends StatelessWidget {
+  const DirectivosScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

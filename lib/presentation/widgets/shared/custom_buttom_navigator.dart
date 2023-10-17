@@ -15,8 +15,8 @@ class _MainNavigatorState extends State<MainNavigator> {
 
   final List<Widget> _screen = [
     const HomeScreen(),
-    const CategoriasScreen(),
-    const ServiciosScreen(),
+    const ColaboradoresScreen(),
+    const DirectivosScreen(),
     const CursosScreen()
   ];
 
@@ -57,14 +57,14 @@ class _MainNavigatorState extends State<MainNavigator> {
                 Icons.category,
                 color: Colors.red,
               ),
-              label: 'Categorias',
+              label: 'Colaboradores',
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.design_services,
                 color: Color.fromARGB(255, 255, 165, 29),
               ),
-              label: 'Servicios',
+              label: 'Directivos',
             ),
             BottomNavigationBarItem(
               icon: Icon(

@@ -9,7 +9,6 @@ class CustomDrawerSidemenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     const gotham = 'Gotham-Medium';
 
     return ClipRRect(
@@ -62,66 +61,8 @@ class CustomDrawerSidemenu extends StatelessWidget {
               },
               subtitle: Text("Administra tu perfil a tu manera"),
             ),
-            const Divider(
-              color: Colors.grey,
-              thickness: 1.0, // Grosor del separador
-              height: 1.0, // Altura del separador
-              indent: 16.0, // Espacio en blanco a la izquierda del separador
-              endIndent: 16.0,
-            ),
-            ExpansionTile(
-              collapsedIconColor: Colors.black,
-              title: Container(
-                height: 50,
-                child: Row(
-                  children: [
-                    Text(
-                      "Servicios",
-                      style: GoogleFonts.montserrat(
-                        fontSize: 15.0,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              children: [Text("data")],
-            ),
-            ExpansionTile(
-              collapsedIconColor: Colors.black,
-              title: Container(
-                height: 50,
-                child: Row(
-                  children: [
-                    Text(
-                      "Categorias",
-                      style: GoogleFonts.montserrat(
-                        fontSize: 15.0,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              children: [Text("data")],
-            ),
-            ExpansionTile(
-              collapsedIconColor: Colors.black,
-              title: Container(
-                height: 50,
-                child: Row(
-                  children: [
-                    Text(
-                      "Cursos",
-                      style: GoogleFonts.montserrat(
-                        fontSize: 15.0,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              children: [Text("data")],
-            ),
-            SizedBox(
-              height: 50.0,
+            const SizedBox(
+              height: 20.0,
             ),
             const Divider(
               color: Colors.grey,

@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 
 class InformationSlideshow extends StatelessWidget {
-  List<String> list = ["", "", "", "", ""];
-
-  InformationSlideshow({super.key});
+  const InformationSlideshow({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<String> list = ["", "", "", "", ""];
     final colors = Theme.of(context).colorScheme;
 
     return SizedBox(
@@ -24,7 +23,7 @@ class InformationSlideshow extends StatelessWidget {
                   activeColor: colors.primary, color: colors.secondary)),
           itemCount: list.length,
           itemBuilder: (context, index) {
-            return _Slide();
+            return const _Slide();
           },
         ));
   }

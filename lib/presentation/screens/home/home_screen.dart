@@ -62,7 +62,7 @@ class _CustomClipperHome extends StatelessWidget {
       child: Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.amberAccent, Colors.redAccent],
+                colors: [Colors.orange, Colors.black],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomCenter)),
         height: 200,

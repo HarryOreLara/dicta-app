@@ -14,11 +14,11 @@ final appRouter = GoRouter(
       ),
       GoRoute(
         path: '/categorias',
-        builder: (context, state) => const CategoriasScreen(),
+        builder: (context, state) => const ColaboradoresScreen(),
       ),
       GoRoute(
         path: '/servicios',
-        builder: (context, state) => const ServiciosScreen(),
+        builder: (context, state) => const DirectivosScreen(),
       ),
       GoRoute(
         path: '/cursos',
