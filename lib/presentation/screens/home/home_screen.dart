@@ -30,7 +30,7 @@ class _HomeView extends StatelessWidget {
           const SizedBox(
             height: 25.0,
           ),
-          InformationSlideshow(),
+          const InformationSlideshow(),
           const SizedBox(
             height: 25.0,
           ),
@@ -62,9 +62,10 @@ class _CustomClipperHome extends StatelessWidget {
       child: Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.orange, Colors.black],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomCenter)),
+                // colors: [Color(0xFF448AFF), Color(0xFF69F0AE)],
+                colors: [Colors.black, Colors.black],
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft)),
         height: 200,
         child: Stack(
           alignment: Alignment.centerLeft,
