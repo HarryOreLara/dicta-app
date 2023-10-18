@@ -68,9 +68,6 @@ class _ColaboradoresScreenState extends State<ColaboradoresScreen> {
             height: 220.0,
             decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [
-                  // Colors.black,
-                  // Colors.black
-
                   const Color(0xFF448AFF).withOpacity(0.8),
                   const Color(0xFF69F0AE).withOpacity(0.9)
                 ], begin: Alignment.bottomLeft, end: Alignment.centerRight),
@@ -181,8 +178,6 @@ class _ColaboradoresScreenState extends State<ColaboradoresScreen> {
                               gradient: LinearGradient(colors: [
                                 const Color(0xFF0864c5).withOpacity(0.8),
                                 const Color(0xFF83e4ff).withOpacity(0.9),
-                                // Colors.black,
-                                // Colors.black,
                               ]),
                               boxShadow: [
                                 BoxShadow(
@@ -213,9 +208,6 @@ class _ColaboradoresScreenState extends State<ColaboradoresScreen> {
                               gradient: LinearGradient(colors: [
                                 const Color(0xFF0864c5).withOpacity(0.8),
                                 const Color(0xFF83e4ff).withOpacity(0.9),
-
-                                // Colors.black,
-                                // Colors.black,
                               ]),
                               boxShadow: [
                                 BoxShadow(
