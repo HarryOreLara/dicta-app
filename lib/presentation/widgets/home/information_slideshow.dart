@@ -47,7 +47,7 @@ class _Slide extends StatelessWidget {
           child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.network(
-                "https://assets.xboxservices.com/assets/2c/7e/2c7eaa9b-4da1-4f3d-9a5e-23ad011df07d.jpg?n=Naraka-Bladepoint_GLP-Page-Hero-1084_Season-9_1920x1080_01.jpg",
+                "https://static.mercadonegro.pe/wp-content/uploads/2020/10/15171525/cursos-virtuales.jpg",
                 fit: BoxFit.cover,
                 loadingBuilder: (context, child, loadingProgress) {
                   if (loadingProgress != null) {

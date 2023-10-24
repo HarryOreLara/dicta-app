@@ -177,7 +177,7 @@ class _ColaboradoresScreenState extends State<ColaboradoresScreen> {
                               borderRadius: BorderRadius.circular(15.0),
                               gradient: LinearGradient(colors: [
                                 const Color(0xFF0864c5).withOpacity(0.8),
-                                const Color(0xFF83e4ff).withOpacity(0.9),
+                                const Color.fromARGB(255, 30, 212, 157)
                               ]),
                               boxShadow: [
                                 BoxShadow(
@@ -185,15 +185,27 @@ class _ColaboradoresScreenState extends State<ColaboradoresScreen> {
                                     offset: const Offset(5, 10),
                                     color: Colors.blueAccent.withOpacity(0.5)),
                               ]),
-                          child: const Center(
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                "Curso",
-                                style: TextStyle(
-                                    fontSize: 20.0, color: Colors.black87),
+                          child: Column(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(15.0),
+                                child: Image.network(
+                                  'https://static.mercadonegro.pe/wp-content/uploads/2020/10/15171525/cursos-virtuales.jpg',
+                                  width: size.width * 0.4,
+                                ),
                               ),
-                            ),
+                              const Center(
+                                child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Text(
+                                    "Cursos",
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                        fontSize: 20.0, color: Colors.white),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -207,7 +219,8 @@ class _ColaboradoresScreenState extends State<ColaboradoresScreen> {
                               borderRadius: BorderRadius.circular(15.0),
                               gradient: LinearGradient(colors: [
                                 const Color(0xFF0864c5).withOpacity(0.8),
-                                const Color(0xFF83e4ff).withOpacity(0.9),
+                                const Color.fromARGB(255, 30, 212, 157)
+                                    .withOpacity(0.9),
                               ]),
                               boxShadow: [
                                 BoxShadow(
@@ -215,15 +228,27 @@ class _ColaboradoresScreenState extends State<ColaboradoresScreen> {
                                     offset: const Offset(5, 10),
                                     color: Colors.blueAccent.withOpacity(0.5)),
                               ]),
-                          child: const Center(
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Text(
-                                "Curso",
-                                style: TextStyle(
-                                    fontSize: 20.0, color: Colors.black87),
+                          child: Column(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(15.0),
+                                child: Image.network(
+                                  'https://static.mercadonegro.pe/wp-content/uploads/2020/10/15171525/cursos-virtuales.jpg',
+                                  width: size.width * 0.4,
+                                ),
                               ),
-                            ),
+                              const Center(
+                                child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Text(
+                                    "Cursos",
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                        fontSize: 20.0, color: Colors.white),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         )
                       ],
