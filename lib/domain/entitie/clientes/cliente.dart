@@ -17,6 +17,5 @@ class Cliente extends Equatable {
       required this.genero});
 
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [id, nombre, apellidos, edad, email, genero];
 }

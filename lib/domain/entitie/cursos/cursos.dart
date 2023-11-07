@@ -13,5 +13,5 @@ class Curso extends Equatable {
       required this.categoria});
 
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props =>[id, nombre, precio, categoria];
 }
