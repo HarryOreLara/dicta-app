@@ -1,32 +1,32 @@
 import 'package:dicta_app/infraestructure/models/cursos/curso_model.dart';
 
 const cursosColaboradores = <CursoModel>[
-  CursoModel(
-      id: "1",
-      nombre: "LinkedIn Learning: Entrenamiento Esencial",
-      precio: 250,
-      categoria: "Alfabetización Digital para Colaboradores"),
-  CursoModel(
-      id: "2",
-      nombre: "Coursera: Alfabetización Digital",
-      precio: 255.0,
-      categoria: "Alfabetización Digital para Colaboradores"),
-  CursoModel(
-      id: "3",
-      nombre:
-          "LinkedIn Learning: Herramientas de Productividad en el Trabajo Remoto",
-      precio: 255.0,
-      categoria: "Habilidades Digitales para Colaboradores"),
-  CursoModel(
-      id: "4",
-      nombre: "Coursera: Habilidades de Comunicación en el Mundo Digital",
-      precio: 255.0,
-      categoria: "Habilidades Digitales para Colaboradores"),
-  CursoModel(
-      id: "5",
-      nombre: "edX: Introducción a la Programación",
-      precio: 255.0,
-      categoria: "Habilidades Técnicas para Colaboradores"),
+  // CursoModel(
+  //     id: "1",
+  //     nombre: "LinkedIn Learning: Entrenamiento Esencial",
+  //     precio: 250,
+  //     categoria: "Alfabetización Digital para Colaboradores"),
+  // CursoModel(
+  //     id: "2",
+  //     nombre: "Coursera: Alfabetización Digital",
+  //     precio: 255.0,
+  //     categoria: "Alfabetización Digital para Colaboradores"),
+  // CursoModel(
+  //     id: "3",
+  //     nombre:
+  //         "LinkedIn Learning: Herramientas de Productividad en el Trabajo Remoto",
+  //     precio: 255.0,
+  //     categoria: "Habilidades Digitales para Colaboradores"),
+  // CursoModel(
+  //     id: "4",
+  //     nombre: "Coursera: Habilidades de Comunicación en el Mundo Digital",
+  //     precio: 255.0,
+  //     categoria: "Habilidades Digitales para Colaboradores"),
+  // CursoModel(
+  //     id: "5",
+  //     nombre: "edX: Introducción a la Programación",
+  //     precio: 255.0,
+  //     categoria: "Habilidades Técnicas para Colaboradores"),
 
   // {
   //   "name": "LinkedIn Learning: Seguridad en Línea y Protección de Datos",
