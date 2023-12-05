@@ -9,6 +9,16 @@ class Secciones extends Equatable {
   const Secciones(
       {required this.id, required this.titulo, required this.clases});
 
+factory Secciones.fromMap(Map<String, dynamic> map) {
+  return Secciones(
+    id: map["_id"] as String,
+    titulo: map["titulo"] as String,
+    clases: (map["clases"] as List<dynamic>)
+        .map((clase) => Clases.fromMap(clase))
+        .toList(),
+  );
+}
+
   @override
   List<Object?> get props => [titulo, clases];
 }

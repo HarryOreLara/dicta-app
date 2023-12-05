@@ -33,7 +33,8 @@ class CursoModel extends Curso {
             descripcion: "_empty_Descripcion",
             nivel: "_empty_nivel",
             precio: 1.0,
-            categoria: "_empty_categoria", subcategoria: "_empty_subcategoria");
+            categoria: "_empty_categoria",
+            subcategoria: "_empty_subcategoria");
 
   factory CursoModel.fromJson(String source) =>
       CursoModel.frommap(jsonDecode(source) as DataMap);
@@ -52,7 +53,9 @@ class CursoModel extends Curso {
             estado: map["estado"] as String,
             idioma: map["idioma"] as String,
             nombreCreador: map["nombreCreador"] as String,
-            secciones: map["secciones"] as List<Secciones>);
+            secciones: (map["secciones"] as List<dynamic>)
+                .map((seccion) => Secciones.fromMap(seccion))
+                .toList());
 
   CursoModel copyWith(
       {String? id,
@@ -88,10 +91,10 @@ class CursoModel extends Curso {
         '_id': id,
         'nombre': nombre,
         'precio': precio,
-        'descripcion':descripcion,
-        'nivel':nivel,
-        'subcategoria':subcategoria,
-        'idioma':idioma,
+        'descripcion': descripcion,
+        'nivel': nivel,
+        'subcategoria': subcategoria,
+        'idioma': idioma,
         'categoria': categoria,
         'fechaPublicacion': fechaPublicacion,
         'imagencurso': imagencurso,

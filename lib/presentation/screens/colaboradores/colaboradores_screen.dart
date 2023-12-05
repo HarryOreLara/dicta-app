@@ -37,7 +37,6 @@ class _ColaboradoresScreenState extends State<ColaboradoresScreen> {
             Navigator.pop(context);
           });
         }
-
         return Scaffold(
             body: Container(
           padding: const EdgeInsets.only(top: 10.0, left: 30.0, right: 30.0),
