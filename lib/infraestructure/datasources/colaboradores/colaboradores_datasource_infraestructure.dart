@@ -1,4 +1,3 @@
-import 'package:dicta_app/config/constants/cursos_colaboradores.dart';
 import 'package:dicta_app/config/errors/exception.dart';
 import 'package:dicta_app/domain/datasource/colaboradores/colaboradores_datasource_domain.dart';
 import 'package:dicta_app/infraestructure/auth/auth_service.dart';
@@ -10,15 +9,25 @@ class ColaboradoresDatasourceInfraestructure
   AuthService authService = AuthService();
   Dio dio(String token) {
     return Dio(BaseOptions(
-        baseUrl: '',
+        baseUrl: 'https://back-express-6tca.onrender.com',
         headers: {'Content-Type': 'application/json', 'x-auth-token': token}));
   }
 
   @override
-  Future<List<CursoModel>> getAllCursoColaboradores()async {
+  Future<List<CursoModel>> getAllCursoColaboradores() async {
     try {
-      const List<CursoModel> listColaboradoresCursos = cursosColaboradores;
-      return listColaboradoresCursos;
+      final response = await dio("token").get('/curso/colaboradores');
+
+      if (response.statusCode != 200) {
+        throw APIException(
+            message: response.statusMessage, statusCode: response.statusCode);
+      }
+
+      
+      List<CursoModel> listitaCurso =
+          (response.data as List).map((e) => CursoModel.frommap(e)).toList();
+
+      return listitaCurso;
     } on APIException {
       rethrow;
     } catch (e) {

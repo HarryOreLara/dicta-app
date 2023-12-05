@@ -14,7 +14,11 @@ class CursoModel extends Curso {
       required super.imagencurso,
       required super.estado,
       required super.nombreCreador,
-      required super.secciones});
+      required super.secciones,
+      required super.descripcion,
+      required super.nivel,
+      required super.subcategoria,
+      required super.idioma});
 
   const CursoModel.empty()
       : this(
@@ -25,8 +29,11 @@ class CursoModel extends Curso {
             estado: "_empty_estado",
             nombreCreador: "_empty_nombreCreador",
             secciones: const [],
+            idioma: "_empty_idioma",
+            descripcion: "_empty_Descripcion",
+            nivel: "_empty_nivel",
             precio: 1.0,
-            categoria: "_empty_categoria");
+            categoria: "_empty_categoria", subcategoria: "_empty_subcategoria");
 
   factory CursoModel.fromJson(String source) =>
       CursoModel.frommap(jsonDecode(source) as DataMap);
@@ -37,9 +44,13 @@ class CursoModel extends Curso {
             nombre: map["nombre"] as String,
             precio: map["precio"] as double,
             categoria: map["categoria"] as String,
+            descripcion: map["descripcion"] as String,
+            nivel: map["nivel"] as String,
+            subcategoria: map["subcategoria"] as String,
             fechaPublicacion: map["fechaPublicacion"] as String,
             imagencurso: map["imagencurso"] as String,
             estado: map["estado"] as String,
+            idioma: map["idioma"] as String,
             nombreCreador: map["nombreCreador"] as String,
             secciones: map["secciones"] as List<Secciones>);
 
@@ -48,6 +59,10 @@ class CursoModel extends Curso {
       String? nombre,
       double? precio,
       String? categoria,
+      String? subcategoria,
+      String? idioma,
+      String? nivel,
+      String? descripcion,
       String? fechaPublicacion,
       String? imagencurso,
       String? estado,
@@ -57,7 +72,11 @@ class CursoModel extends Curso {
         id: id ?? this.id,
         nombre: nombre ?? this.nombre,
         precio: precio ?? this.precio,
+        descripcion: descripcion ?? this.descripcion,
         categoria: categoria ?? this.categoria,
+        idioma: idioma ?? this.idioma,
+        nivel: nivel ?? this.nivel,
+        subcategoria: subcategoria ?? this.subcategoria,
         fechaPublicacion: fechaPublicacion ?? this.fechaPublicacion,
         imagencurso: imagencurso ?? this.imagencurso,
         estado: estado ?? this.estado,
@@ -69,6 +88,10 @@ class CursoModel extends Curso {
         '_id': id,
         'nombre': nombre,
         'precio': precio,
+        'descripcion':descripcion,
+        'nivel':nivel,
+        'subcategoria':subcategoria,
+        'idioma':idioma,
         'categoria': categoria,
         'fechaPublicacion': fechaPublicacion,
         'imagencurso': imagencurso,
