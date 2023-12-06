@@ -23,6 +23,21 @@ class _OneCursoScreenState extends State<OneCursoScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<CursosBloc, CursosState>(
       builder: (context, state) {
+        if (state.error != '') {
+          Future.delayed(Duration.zero, () {
+            context.read<CursosBloc>()
+              ..add(CursosInit())
+              ..add(GetOneCurso(nombre: widget.nombre));
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              content: Text(
+                state.error,
+                style: const TextStyle(color: Colors.black),
+              ),
+              backgroundColor: Colors.red,
+            ));
+            Navigator.pop(context);
+          });
+        }
         return Scaffold(
           appBar: AppBar(
             title: Text(widget.nombre),
@@ -47,8 +62,9 @@ class _OneCursoScreenState extends State<OneCursoScreen> {
                   ),
                   Container(
                     child: Text(
-                      state.cursoModel?.descripcion ?? "dsd",
-                      style: const TextStyle(fontSize: 30.0),
+                      state.cursoModel?.descripcion ??
+                          "Este curso no tiene una descripcion",
+                      style: const TextStyle(fontSize: 20.0),
                     ),
                   )
                 ],

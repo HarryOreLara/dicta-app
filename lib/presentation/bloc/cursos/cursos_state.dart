@@ -14,7 +14,7 @@ class CursosState extends Equatable {
           cursoModel: cursoModel ?? this.cursoModel);
 
   @override
-  List<Object> get props => [loading, error, cursoModel!];
+  List<Object> get props => [loading, error, cursoModel ?? ""];
 }
 
 final class CursosInitial extends CursosState {}

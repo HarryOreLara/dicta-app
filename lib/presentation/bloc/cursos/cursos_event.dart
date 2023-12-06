@@ -12,3 +12,5 @@ class GetOneCurso extends CursosEvent {
 
   const GetOneCurso({required this.nombre});
 }
+
+class CursosInit extends CursosEvent{}

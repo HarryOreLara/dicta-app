@@ -12,6 +12,13 @@ class CursosBloc extends Bloc<CursosEvent, CursosState> {
 
   CursosBloc() : super(const CursosState()) {
     _cursoDatasourceDomain = CursoDatasourceInfraestructure();
+
+
+
+    on<CursosInit>((event, emit) {
+      emit(state.copyWith(loading: false, error: ''));
+    });
+
     on<GetOneCurso>((event, emit) async {
       try {
         emit(state.copyWith(loading: true));
