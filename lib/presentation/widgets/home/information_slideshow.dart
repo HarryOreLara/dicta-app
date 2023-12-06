@@ -1,13 +1,16 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:dicta_app/config/constants/home_constats.dart';
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
+import 'package:go_router/go_router.dart';
 
 class InformationSlideshow extends StatelessWidget {
-  const InformationSlideshow({super.key});
+  const InformationSlideshow({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    List<String> list = ["", "", "", "", ""];
     final colors = Theme.of(context).colorScheme;
 
     return SizedBox(
@@ -21,16 +24,25 @@ class InformationSlideshow extends StatelessWidget {
               margin: const EdgeInsets.only(top: 0),
               builder: DotSwiperPaginationBuilder(
                   activeColor: colors.primary, color: colors.secondary)),
-          itemCount: list.length,
+          itemCount: listHomeSlider.length,
           itemBuilder: (context, index) {
-            return const _Slide();
+            final curso = listHomeSlider[index];
+            return _Slide(
+              urlImagen: curso.imagencurso,
+              id: curso.id,
+              nombre: curso.nombre,
+            );
           },
         ));
   }
 }
 
 class _Slide extends StatelessWidget {
-  const _Slide();
+  final String id;
+  final String nombre;
+  final String? urlImagen;
+  const _Slide(
+      {required this.urlImagen, required this.id, required this.nombre});
 
   @override
   Widget build(BuildContext context) {
@@ -42,21 +54,27 @@ class _Slide extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 30),
-      child: DecoratedBox(
-          decoration: decoration,
-          child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.network(
-                "https://static.mercadonegro.pe/wp-content/uploads/2020/10/15171525/cursos-virtuales.jpg",
-                fit: BoxFit.cover,
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress != null) {
-                    return const DecoratedBox(
-                        decoration: BoxDecoration(color: Colors.black12));
-                  }
-                  return FadeIn(child: child);
-                },
-              ))),
+      child: InkWell(
+        onTap: () {
+          context.push('/oneCurso/$id/$nombre');
+        },
+        child: DecoratedBox(
+            decoration: decoration,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.network(
+                  urlImagen ??
+                      "https://static.mercadonegro.pe/wp-content/uploads/2020/10/15171525/cursos-virtuales.jpg",
+                  fit: BoxFit.cover,
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress != null) {
+                      return const DecoratedBox(
+                          decoration: BoxDecoration(color: Colors.black12));
+                    }
+                    return FadeIn(child: child);
+                  },
+                ))),
+      ),
     );
   }
 }

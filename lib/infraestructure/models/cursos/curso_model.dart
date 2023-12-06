@@ -32,7 +32,7 @@ class CursoModel extends Curso {
             idioma: "_empty_idioma",
             descripcion: "_empty_Descripcion",
             nivel: "_empty_nivel",
-            precio: 1.0,
+            precio: 1,
             categoria: "_empty_categoria",
             subcategoria: "_empty_subcategoria");
 
@@ -43,7 +43,7 @@ class CursoModel extends Curso {
       : this(
             id: map["_id"] as String,
             nombre: map["nombre"] as String,
-            precio: map["precio"] as double,
+            precio: (map["precio"] is int) ? (map["precio"] as int).toDouble() : map["precio"] as double,
             categoria: map["categoria"] as String,
             descripcion: map["descripcion"] as String,
             nivel: map["nivel"] as String,

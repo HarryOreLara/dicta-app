@@ -1,3 +1,4 @@
+import 'package:dicta_app/config/constants/information_hom.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -32,10 +33,11 @@ class _SlideCards extends StatelessWidget {
             height: size.height * 0.18,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 5,
+              itemCount: informationList.length,
               itemBuilder: (context, index) {
+                final info = informationList[index];
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 5.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
                   child: Card(
                     elevation: 3,
                     child: SizedBox(
@@ -45,13 +47,10 @@ class _SlideCards extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          const Icon(
-                            Icons.person,
-                            size: 40.0,
-                            color: Colors.green,
-                          ),
+                          info.icono,
                           Text(
-                            "Informacion",
+                            info.info,
+                            textAlign: TextAlign.center,
                             style: GoogleFonts.montserrat(),
                           )
                         ],

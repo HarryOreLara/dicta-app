@@ -14,3 +14,5 @@ class GetOneCurso extends CursosEvent {
 }
 
 class CursosInit extends CursosEvent{}
+
+class GetAllCursos extends CursosEvent{}

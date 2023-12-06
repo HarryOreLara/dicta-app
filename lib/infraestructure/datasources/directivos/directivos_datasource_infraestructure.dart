@@ -1,10 +1,10 @@
 import 'package:dicta_app/config/errors/exception.dart';
-import 'package:dicta_app/domain/datasource/datasource_domain.dart';
+import 'package:dicta_app/domain/datasource/directivos/directivos_datasource_domain.dart';
 import 'package:dicta_app/infraestructure/auth/auth_service.dart';
 import 'package:dicta_app/infraestructure/models/cursos/curso_model.dart';
 import 'package:dio/dio.dart';
 
-class CursoDatasourceInfraestructure extends CursoDatasourceDomain {
+class DirectivosDatasourceInfraestructure extends DirectivosDatasourceDomain {
   AuthService authService = AuthService();
   Dio dio(String token) {
     return Dio(BaseOptions(
@@ -13,9 +13,9 @@ class CursoDatasourceInfraestructure extends CursoDatasourceDomain {
   }
 
   @override
-  Future<List<CursoModel>> getAllCursos() async {
+  Future<List<CursoModel>> getAllCursoDirectivos() async {
     try {
-      final response = await dio("token").get('/curso/readAll');
+      final response = await dio("token").get('/curso/directivos');
 
       if (response.statusCode != 200) {
         throw APIException(
@@ -33,15 +33,8 @@ class CursoDatasourceInfraestructure extends CursoDatasourceDomain {
   }
 
   @override
-  Future<CursoModel> getOneCurso(String id) async {
-    try {
-      final response = await dio("token").get("/curso/search/$id");
-      CursoModel cursoModel = CursoModel.frommap(response.data);
-      return cursoModel;
-    } on APIException {
-      rethrow;
-    } catch (e) {
-      throw APIException(message: e.toString(), statusCode: 505);
-    }
+  Future<CursoModel> getOneCursoDirectivos(String id) {
+    // TODO: implement getOneCursoDirectivos
+    throw UnimplementedError();
   }
 }

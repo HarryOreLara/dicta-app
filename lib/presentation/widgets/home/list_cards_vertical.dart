@@ -36,7 +36,7 @@ class ListCards extends StatelessWidget {
                     SizedBox(
                       width: size.width * 0.7,
                       child: Text(
-                        "Como educar a tus hijos en la era digital",
+                        "Como educar a las personas en la era digital",
                         style: GoogleFonts.montserrat(
                             fontSize: 15.0, fontWeight: FontWeight.bold),
                       ),

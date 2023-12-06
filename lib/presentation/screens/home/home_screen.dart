@@ -1,6 +1,8 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:dicta_app/presentation/bloc/cursos/cursos_bloc.dart';
 import 'package:dicta_app/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,16 +14,29 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  void initState() {
+    context.read<CursosBloc>().add(GetAllCursos());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const _HomeView(),
-      drawer: FadeIn(child: const CustomDrawerSidemenu()),
+    return BlocBuilder<CursosBloc, CursosState>(
+      builder: (context, state) {
+        return Scaffold(
+          body: _HomeView(
+            numero: state.listaCursos.length,
+          ),
+          drawer: FadeIn(child: const CustomDrawerSidemenu()),
+        );
+      },
     );
   }
 }
 
 class _HomeView extends StatelessWidget {
-  const _HomeView({super.key});
+  final int numero;
+  const _HomeView({super.key, required this.numero});
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +58,6 @@ class _HomeView extends StatelessWidget {
           const SizedBox(
             height: 10.0,
           ),
-          const ListCards(),
-          const ListCards(),
           const ListCards(),
         ],
       ),

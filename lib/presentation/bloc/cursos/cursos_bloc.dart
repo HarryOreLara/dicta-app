@@ -13,8 +13,6 @@ class CursosBloc extends Bloc<CursosEvent, CursosState> {
   CursosBloc() : super(const CursosState()) {
     _cursoDatasourceDomain = CursoDatasourceInfraestructure();
 
-
-
     on<CursosInit>((event, emit) {
       emit(state.copyWith(loading: false, error: ''));
     });
@@ -24,6 +22,23 @@ class CursosBloc extends Bloc<CursosEvent, CursosState> {
         emit(state.copyWith(loading: true));
         final curso = await _cursoDatasourceDomain.getOneCurso(event.nombre);
         emit(state.copyWith(loading: false, cursoModel: curso));
+      } catch (e) {
+        try {
+          emit(
+              state.copyWith(loading: false, error: (e as dynamic)['message']));
+        } catch (e) {
+          emit(state.copyWith(
+              loading: false, error: 'Ocurrio un error de segundo nivel'));
+        }
+      }
+    });
+
+    on<GetAllCursos>((event, emit) async {
+      try {
+        emit(state.copyWith(loading: true));
+        final List<CursoModel> listaCursos =
+            await _cursoDatasourceDomain.getAllCursos();
+        emit(state.copyWith(loading: false, listaCursos: listaCursos));
       } catch (e) {
         try {
           emit(
