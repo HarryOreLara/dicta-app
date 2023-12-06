@@ -1,13 +1,31 @@
 import 'package:bloc/bloc.dart';
+import 'package:dicta_app/domain/datasource/cursos/curso_datasource_domain.dart';
+import 'package:dicta_app/infraestructure/datasources/cursos/cursos_datasource_infraestructure.dart';
+import 'package:dicta_app/infraestructure/models/cursos/curso_model.dart';
 import 'package:equatable/equatable.dart';
 
 part 'cursos_event.dart';
 part 'cursos_state.dart';
 
 class CursosBloc extends Bloc<CursosEvent, CursosState> {
-  CursosBloc() : super(CursosInitial()) {
-    on<CursosEvent>((event, emit) {
-      // TODO: implement event handler
+  late CursoDatasourceDomain _cursoDatasourceDomain;
+
+  CursosBloc() : super(const CursosState()) {
+    _cursoDatasourceDomain = CursoDatasourceInfraestructure();
+    on<GetOneCurso>((event, emit) async {
+      try {
+        emit(state.copyWith(loading: true));
+        final curso = await _cursoDatasourceDomain.getOneCurso(event.nombre);
+        emit(state.copyWith(loading: false, cursoModel: curso));
+      } catch (e) {
+        try {
+          emit(
+              state.copyWith(loading: false, error: (e as dynamic)['message']));
+        } catch (e) {
+          emit(state.copyWith(
+              loading: false, error: 'Ocurrio un error de segundo nivel'));
+        }
+      }
     });
   }
 }

@@ -25,6 +25,14 @@ final appRouter = GoRouter(
         builder: (context, state) => const CursosScreen(),
       ),
       GoRoute(
+        path: '/oneCurso/:id/:nombre',
+        builder: (context, state) {
+          final id = state.pathParameters["id"] ?? '';
+          final nombre = state.pathParameters["nombre"] ?? '';
+          return OneCursoScreen(id: id, nombre: nombre);
+        },
+      ),
+      GoRoute(
         path: '/perfil',
         builder: (context, state) => const PerfilScreen(),
       ),

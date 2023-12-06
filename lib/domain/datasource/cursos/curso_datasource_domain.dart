@@ -1,8 +1,8 @@
-import 'package:dicta_app/domain/entitie/cursos/cursos.dart';
+import 'package:dicta_app/infraestructure/models/cursos/curso_model.dart';
 
 abstract class CursoDatasourceDomain{
-  Future<List<Curso>> getAllCursos();
+  Future<List<CursoModel>> getAllCursos();
 
-  Future<Curso> getOneCurso(String id);
+  Future<CursoModel> getOneCurso(String id);
 
 }

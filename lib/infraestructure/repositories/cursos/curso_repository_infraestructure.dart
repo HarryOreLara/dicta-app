@@ -1,6 +1,6 @@
 import 'package:dicta_app/domain/datasource/cursos/curso_datasource_domain.dart';
-import 'package:dicta_app/domain/entitie/cursos/cursos.dart';
 import 'package:dicta_app/domain/repositories/repositories_domain.dart';
+import 'package:dicta_app/infraestructure/models/cursos/curso_model.dart';
 
 class CursoRepositoryInfraestructure extends CursoRepositoryDomain {
   final CursoDatasourceDomain cursoDatasourceDomain;
@@ -8,12 +8,12 @@ class CursoRepositoryInfraestructure extends CursoRepositoryDomain {
   CursoRepositoryInfraestructure(this.cursoDatasourceDomain);
 
   @override
-  Future<List<Curso>> getAllCursos() {
+  Future<List<CursoModel>> getAllCursos() {
     return cursoDatasourceDomain.getAllCursos();
   }
 
   @override
-  Future<Curso> getOneCurso(String id) {
+  Future<CursoModel> getOneCurso(String id) {
     return cursoDatasourceDomain.getOneCurso(id);
   }
 }

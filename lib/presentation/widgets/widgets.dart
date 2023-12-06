@@ -1,3 +1,5 @@
+export 'package:dicta_app/presentation/widgets/shared/circular_progres_custom.dart';
+
 export 'package:dicta_app/presentation/widgets/formularios/input_perfil.dart';
 
 export 'package:dicta_app/presentation/widgets/colaboradores/colaboradores_appbar.dart';
