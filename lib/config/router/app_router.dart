@@ -33,6 +33,14 @@ final appRouter = GoRouter(
         },
       ),
       GoRoute(
+        path: '/cursoComprado/:id/:nombre',
+        builder: (context, state) {
+          final id = state.pathParameters["id"] ?? '';
+          final nombre = state.pathParameters["nombre"] ?? '';
+          return CursoCompradoScreen(id: id, nombre: nombre);
+        },
+      ),
+      GoRoute(
         path: '/perfil',
         builder: (context, state) => const PerfilScreen(),
       ),

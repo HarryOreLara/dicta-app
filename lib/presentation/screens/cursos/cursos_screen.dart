@@ -1,5 +1,6 @@
 import 'package:dicta_app/config/constants/cursos_item.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CursosScreen extends StatelessWidget {
   const CursosScreen({super.key});
@@ -36,7 +37,10 @@ class __BodyCiudadesState extends State<_BodyCiudades> {
     for (var post in responseList) {
       listItems.add(GestureDetector(
         onTap: () {
-          print(post["name"]);
+          // print(post["name"]);
+          final nombre = post["name"];
+          const id = "variable";
+          context.push('/cursoComprado/$id/$nombre');
         },
         child: Container(
           height: 150,
@@ -53,27 +57,32 @@ class __BodyCiudadesState extends State<_BodyCiudades> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
-                  children: [
-                    Text(
-                      post["name"],
-                      style: const TextStyle(
-                          fontSize: 28.0, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      post["brand"],
-                      style: const TextStyle(fontSize: 17, color: Colors.grey),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.arrow_forward_ios,
-                          size: 30.0,
-                        ))
-                  ],
+                Container(
+                  width: 200.0,
+                  child: Column(
+                    children: [
+                      Text(
+                        post["name"],
+                        maxLines: 2,
+                        style: const TextStyle(
+                            fontSize: 15.0, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        post["brand"],
+                        style:
+                            const TextStyle(fontSize: 17, color: Colors.grey),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.arrow_forward_ios,
+                            size: 30.0,
+                          ))
+                    ],
+                  ),
                 ),
                 Image.network(
                   'https://static.mercadonegro.pe/wp-content/uploads/2020/10/15171525/cursos-virtuales.jpg',
