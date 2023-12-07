@@ -29,7 +29,7 @@ class _CursoCompradoScreenState extends State<CursoCompradoScreen> {
     _seccion1Expanded = false;
     _seccion2Expanded = false;
     _controller = YoutubePlayerController(
-      initialVideoId: '2uqsKjrvVA8',
+      initialVideoId: 'LVXt_4cYFW8',
       flags: const YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
