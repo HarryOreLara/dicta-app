@@ -9,8 +9,16 @@ final appRouter = GoRouter(
     debugLogDiagnostics: true,
     routes: [
       GoRoute(
-        path: '/',
+        path: '/main',
         builder: (context, state) => const MainNavigator(),
+      ),
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: '/register',
+        builder: (context, state) => const RegisterScreen(),
       ),
       GoRoute(
         path: '/categorias',
