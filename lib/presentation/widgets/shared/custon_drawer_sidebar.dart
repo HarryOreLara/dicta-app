@@ -59,7 +59,7 @@ class CustomDrawerSidemenu extends StatelessWidget {
                 // Agregar la lógica para manejar el clic en el elemento del Drawer
                 context.go('/perfil');
               },
-              subtitle: Text("Administra tu perfil a tu manera"),
+              subtitle: const Text("Administra tu perfil a tu manera"),
             ),
             const SizedBox(
               height: 20.0,
@@ -117,8 +117,7 @@ class CustomDrawerSidemenu extends StatelessWidget {
                 style: TextStyle(fontFamily: gotham, fontSize: 15.0),
               ),
               onTap: () {
-                // Agregar la lógica para manejar el clic en el elemento del Drawer
-                Navigator.pop(context); // Cierra el Drawer
+                context.pop(context);
               },
             ),
           ],

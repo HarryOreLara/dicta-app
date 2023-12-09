@@ -11,24 +11,24 @@ class AuthDatasourceInfraestructure extends AuthDatasourceDomain {
   }
 
   @override
-  Future<bool> login(UsuarioModel usuarioModel)async {
-    try {} on APIException {
+  Future<bool> login(UsuarioModel usuarioModel) async {
+    try {
+      return true;
+    } on APIException {
       rethrow;
     } catch (e) {
       throw APIException(message: e.toString(), statusCode: 505);
     }
-    // TODO: implement login
-    throw UnimplementedError();
   }
 
   @override
-  Future<bool> register(UsuarioModel usuarioModel)async {
-    try {} on APIException {
+  Future<bool> register(UsuarioModel usuarioModel) async {
+    try {
+      return true;
+    } on APIException {
       rethrow;
     } catch (e) {
       throw APIException(message: e.toString(), statusCode: 505);
     }
-    // TODO: implement register
-    throw UnimplementedError();
   }
 }
