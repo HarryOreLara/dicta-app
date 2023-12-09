@@ -23,6 +23,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     return BlocBuilder<UsuariosBloc, UsuariosState>(
       builder: (context, state) {
+        if (state.error != "") {
+          Future.delayed(Duration.zero, () {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(state.error)));
+          });
+        }
         if (state.succesfully) {
           Future.delayed(Duration.zero, () {
             context.push('/main');
@@ -224,8 +230,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   final usuarioModel = UsuarioModel(
                                       username: usernameController.text.trim(),
                                       email: emailController.text.trim(),
+                                      estado: true,
                                       password: passwordController.text.trim(),
-                                      passwordConfirmation:
+                                      passwordTwo:
                                           passwordConfirmationController.text
                                               .trim(),
                                       token: "token");

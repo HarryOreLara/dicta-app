@@ -3,23 +3,26 @@ import 'package:equatable/equatable.dart';
 class Usuario extends Equatable {
   final String? username;
   final String? email;
+  final bool? estado;
   final String? password;
-  final String? passwordConfirmation;
+  final String? passwordTwo;
   final String? token;
 
   const Usuario(
       {required this.username,
       required this.email,
+      required this.estado,
       required this.password,
-      required this.passwordConfirmation,
+      required this.passwordTwo,
       required this.token});
 
   @override
   List<Object?> get props => [
         username,
         email,
+        estado,
         password,
-        passwordConfirmation,
+        passwordTwo,
         token
       ];
 }

@@ -12,36 +12,34 @@ class UsuariosBloc extends Bloc<UsuariosEvent, UsuariosState> {
 
   UsuariosBloc() : super(const UsuariosState()) {
     _authDatasourceDomain = AuthDatasourceInfraestructure();
-    on<LoginUsuario>((event, emit)async {
+    on<LoginUsuario>((event, emit) async {
       try {
         emit(state.copyWith(loading: true));
         final login = await _authDatasourceDomain.login(event.usuarioModel);
-        emit(state.copyWith(
-            loading: false, succesfully: login));
+        emit(state.copyWith(loading: false, succesfully: login));
       } catch (e) {
         try {
           emit(
               state.copyWith(loading: false, error: (e as dynamic)['message']));
         } catch (e) {
           emit(state.copyWith(
-              loading: false, error: 'Ocurrio un error de segundo nivel'));
+              loading: false, error: 'Ups!.. Verifica tus credenciales'));
         }
       }
     });
 
-    on<RegistroUsuario>((event, emit)async {
+    on<RegistroUsuario>((event, emit) async {
       try {
         emit(state.copyWith(loading: true));
-        final registro = await _authDatasourceDomain.register(event.usuarioModel);
-        emit(state.copyWith(
-            loading: false, succesfully: registro));
+        final registro =
+            await _authDatasourceDomain.register(event.usuarioModel);
+        emit(state.copyWith(loading: false, succesfully: registro));
       } catch (e) {
         try {
           emit(
               state.copyWith(loading: false, error: (e as dynamic)['message']));
         } catch (e) {
-          emit(state.copyWith(
-              loading: false, error: 'Ocurrio un error de segundo nivel'));
+          emit(state.copyWith(loading: false, error: 'Usuario ya creado'));
         }
       }
     });

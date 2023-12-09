@@ -6,13 +6,20 @@ import 'package:dio/dio.dart';
 class AuthDatasourceInfraestructure extends AuthDatasourceDomain {
   Dio dio(String token) {
     return Dio(BaseOptions(
-        baseUrl: 'https://back-express-6tca.onrender.com',
+        baseUrl: 'http://www.backdictacolombia.somee.com/api',
         headers: {'Content-Type': 'application/json', 'x-auth-token': token}));
   }
 
   @override
   Future<bool> login(UsuarioModel usuarioModel) async {
     try {
+      final usuarioJson = usuarioModel.toMap();
+      final response =
+          await dio("token").post('/IniciarSesion', data: usuarioJson);
+
+      if (response.statusCode != 200) {
+        return false;
+      }
       return true;
     } on APIException {
       rethrow;
@@ -24,6 +31,11 @@ class AuthDatasourceInfraestructure extends AuthDatasourceDomain {
   @override
   Future<bool> register(UsuarioModel usuarioModel) async {
     try {
+      final usuarioJson = usuarioModel.toMap();
+      final response = await dio("token").post('/Users', data: usuarioJson);
+      if (response.statusCode != 200) {
+        return false;
+      }
       return true;
     } on APIException {
       rethrow;

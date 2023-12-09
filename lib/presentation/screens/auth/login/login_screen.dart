@@ -23,6 +23,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return BlocBuilder<UsuariosBloc, UsuariosState>(
       builder: (context, state) {
+        if (state.error != "") {
+          Future.delayed(Duration.zero, () {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(state.error)));
+          });
+        }
+
         if (state.succesfully) {
           Future.delayed(Duration.zero, () {
             context.push('/main');
@@ -97,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         fontWeight: FontWeight.bold,
                                         fontSize: 13.0,
                                       ),
-                                      hintText: "Username..",
+                                      hintText: "Email..",
                                       filled: true,
                                       fillColor:
                                           Color.fromARGB(255, 255, 255, 255),
@@ -155,9 +162,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             final usuarioModel = UsuarioModel(
                                 username: "",
-                                passwordConfirmation: "",
+                                passwordTwo: "",
                                 token: "",
                                 email: emailController.text.trim(),
+                                estado: true,
                                 password: passwordController.text.trim());
                             if (formKey.currentState!.validate()) {
                               context.read<UsuariosBloc>().add(

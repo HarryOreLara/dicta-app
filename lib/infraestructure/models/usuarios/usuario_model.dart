@@ -7,16 +7,18 @@ class UsuarioModel extends Usuario {
   const UsuarioModel(
       {required super.username,
       required super.email,
+      required super.estado,
       required super.password,
-      required super.passwordConfirmation,
+      required super.passwordTwo,
       required super.token});
 
   const UsuarioModel.empty()
       : this(
             username: '_empty_name',
             email: '_empty_email',
+            estado: true,
             password: '_empty_password',
-            passwordConfirmation: '_empty_passwordConfirmation',
+            passwordTwo: '_empty_passwordTwo',
             token: '_empty_token');
 
   factory UsuarioModel.fromJson(String source) =>
@@ -26,15 +28,17 @@ class UsuarioModel extends Usuario {
       : this(
             username: map['username'] as String,
             email: map['email'] as String,
+            estado: map['estado'] as bool,
             password: map['password'] as String,
-            passwordConfirmation: map['passwordConfirmation'] as String,
+            passwordTwo: map['passwordTwo'] as String,
             token: map['token'] as String);
 
   UsuarioModel copyWith(
       {final String? username,
       final String? email,
+      final bool? estado,
       final String? password,
-      final String? passwordConfirmation,
+      final String? passwordTwo,
       final String? updatedAt,
       final String? createdAt,
       final int? id,
@@ -42,16 +46,18 @@ class UsuarioModel extends Usuario {
     return UsuarioModel(
         username: username ?? this.username,
         email: email ?? this.email,
+        estado: estado ?? this.estado,
         password: password ?? this.password,
-        passwordConfirmation: passwordConfirmation ?? this.passwordConfirmation,
+        passwordTwo: passwordTwo ?? this.passwordTwo,
         token: token ?? this.token);
   }
 
   DataMap toMap() => {
         "username": username,
         "email": email,
+        "estado":estado,
         "password": password,
-        "password_confirmation": passwordConfirmation,
+        "passwordTwo": passwordTwo,
         "token": token
       };
 
