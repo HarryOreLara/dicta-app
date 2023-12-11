@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
         }
 
         return Scaffold(
-            backgroundColor: const Color.fromARGB(255, 0, 102, 185),
+            backgroundColor: const Color.fromARGB(255, 0, 0, 0),
             body: SingleChildScrollView(
               child: Column(
                 children: [
@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Text(
                             'Iniciar Sesión',
                             style: TextStyle(
-                                color: Color.fromARGB(255, 0, 102, 185),
+                                color: Color.fromARGB(255, 0, 0, 0),
                                 fontSize: 40.0,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderRadius: BorderRadius.circular(10),
                                 boxShadow: const [
                                   BoxShadow(
-                                      color: Color.fromARGB(255, 6, 83, 156),
+                                      color: Color.fromARGB(255, 0, 0, 0),
                                       blurRadius: 10,
                                       offset: Offset(0, 2))
                                 ]),
@@ -88,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         10), // Ajusta el valor según sea necesario
                                     boxShadow: const [
                                       BoxShadow(
-                                        color: Color.fromARGB(255, 6, 83, 156),
+                                        color: Color.fromARGB(255, 0, 0, 0),
                                         blurRadius: 10,
                                         offset: Offset(0, 2),
                                       )
@@ -98,6 +98,20 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                   child: TextFormField(
                                     controller: emailController,
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Este campo es obligatorio';
+                                      }
+                                      if (value.length > 25) {
+                                        return 'Su nombre es muy grande';
+                                      }
+                                      final emailRegex = RegExp(
+                                          r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$');
+                                      if (!emailRegex.hasMatch(value)) {
+                                        return 'Ingrese un correo electrónico válido';
+                                      }
+                                      return null;
+                                    },
                                     decoration: const InputDecoration(
                                       errorStyle: TextStyle(
                                         color: Colors.red,
@@ -122,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         10), // Ajusta el valor según sea necesario
                                     boxShadow: const [
                                       BoxShadow(
-                                        color: Color.fromARGB(255, 6, 83, 156),
+                                        color: Color.fromARGB(255, 0, 0, 0),
                                         blurRadius: 10,
                                         offset: Offset(0, 2),
                                       )
@@ -132,6 +146,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                   child: TextFormField(
                                     controller: passwordController,
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Este campo es obligatorio';
+                                      }
+                                      if (value.length > 15) {
+                                        return 'Su nombre es muy grande';
+                                      }
+                                      return null;
+                                    },
                                     decoration: const InputDecoration(
                                       errorStyle: TextStyle(
                                         color: Colors.red,
@@ -177,7 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             style: TextStyle(
                                 fontFamily: 'Gotham-Medium',
                                 fontSize: 20.0,
-                                color: Colors.blue),
+                                color: Color.fromARGB(255, 0, 0, 0)),
                           ),
                         ),
                         const SizedBox(

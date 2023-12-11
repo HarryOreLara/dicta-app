@@ -1,4 +1,3 @@
-import 'package:dicta_app/presentation/widgets/formularios/input_perfil.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,7 +10,7 @@ class PerfilScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Color(0xFF000000),
+      backgroundColor: const Color(0xFF000000),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
@@ -181,7 +180,7 @@ class InvertedElegantClipPath2 extends StatelessWidget {
             color: Colors.white, // Color de fondo
           ),
         ),
-        const _FormPerfil()
+        _FormPerfil()
       ],
     );
   }
@@ -221,28 +220,231 @@ class InvertedElegantClipper2 extends CustomClipper<Path> {
 }
 
 class _FormPerfil extends StatelessWidget {
-  const _FormPerfil({super.key});
+  final formKey = GlobalKey<FormState>();
+  final nombreController = TextEditingController();
+  final apellidoPatController = TextEditingController();
+  final apellidoMatController = TextEditingController();
+  final dniController = TextEditingController();
+  final edadController = TextEditingController();
+  final telefonoController = TextEditingController();
+  final generoController = TextEditingController();
+
+  _FormPerfil({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return SingleChildScrollView(
       child: Column(
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: SizedBox(
-              width: size.width * 1,
-              height: size.height * 0.5,
               child: Form(
+                key: formKey,
                 child: Column(
                   children: [
-                    const InputPerfil(
-                      label: "Nombres",
+                    TextFormField(
+                      style:
+                          const TextStyle(fontSize: 20.0, color: Colors.white),
+                      controller: nombreController,
+                      decoration: InputDecoration(
+                          focusColor: Colors.white,
+                          fillColor: Colors.white,
+                          hoverColor: Colors.white,
+                          focusedBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando está enfocado
+                          ),
+                          enabledBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando no está enfocado
+                          ),
+                          label: Text(
+                            "Nombres",
+                            style: TextStyle(
+                                color: Colors.grey.shade300,
+                                fontFamily: 'Gotham-Black',
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w900),
+                          ),
+                          errorText: "",
+                          hintStyle: const TextStyle(color: Colors.grey)),
                     ),
-                    const InputPerfil(
-                      label: "Apellidos",
+                    TextFormField(
+                      style:
+                          const TextStyle(fontSize: 20.0, color: Colors.white),
+                      controller: apellidoPatController,
+                      decoration: InputDecoration(
+                          focusColor: Colors.white,
+                          fillColor: Colors.white,
+                          hoverColor: Colors.white,
+                          focusedBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando está enfocado
+                          ),
+                          enabledBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando no está enfocado
+                          ),
+                          label: Text(
+                            "Apellido Paterno",
+                            style: TextStyle(
+                                color: Colors.grey.shade300,
+                                fontFamily: 'Gotham-Black',
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w900),
+                          ),
+                          errorText: "",
+                          hintStyle: const TextStyle(color: Colors.grey)),
+                    ),
+                    TextFormField(
+                      style:
+                          const TextStyle(fontSize: 20.0, color: Colors.white),
+                      controller: apellidoMatController,
+                      decoration: InputDecoration(
+                          focusColor: Colors.white,
+                          fillColor: Colors.white,
+                          hoverColor: Colors.white,
+                          focusedBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando está enfocado
+                          ),
+                          enabledBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando no está enfocado
+                          ),
+                          label: Text(
+                            "Apellido Materno",
+                            style: TextStyle(
+                                color: Colors.grey.shade300,
+                                fontFamily: 'Gotham-Black',
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w900),
+                          ),
+                          errorText: "",
+                          hintStyle: const TextStyle(color: Colors.grey)),
+                    ),
+                    TextFormField(
+                      style:
+                          const TextStyle(fontSize: 20.0, color: Colors.white),
+                      controller: dniController,
+                      decoration: InputDecoration(
+                          focusColor: Colors.white,
+                          fillColor: Colors.white,
+                          hoverColor: Colors.white,
+                          focusedBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando está enfocado
+                          ),
+                          enabledBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando no está enfocado
+                          ),
+                          label: Text(
+                            "Dni",
+                            style: TextStyle(
+                                color: Colors.grey.shade300,
+                                fontFamily: 'Gotham-Black',
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w900),
+                          ),
+                          errorText: "",
+                          hintStyle: const TextStyle(color: Colors.grey)),
+                    ),
+                    TextFormField(
+                      style:
+                          const TextStyle(fontSize: 20.0, color: Colors.white),
+                      controller: edadController,
+                      decoration: InputDecoration(
+                          focusColor: Colors.white,
+                          fillColor: Colors.white,
+                          hoverColor: Colors.white,
+                          focusedBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando está enfocado
+                          ),
+                          enabledBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando no está enfocado
+                          ),
+                          label: Text(
+                            "Edad",
+                            style: TextStyle(
+                                color: Colors.grey.shade300,
+                                fontFamily: 'Gotham-Black',
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w900),
+                          ),
+                          errorText: "",
+                          hintStyle: const TextStyle(color: Colors.grey)),
+                    ),
+                    TextFormField(
+                      style:
+                          const TextStyle(fontSize: 20.0, color: Colors.white),
+                      controller: generoController,
+                      decoration: InputDecoration(
+                          focusColor: Colors.white,
+                          fillColor: Colors.white,
+                          hoverColor: Colors.white,
+                          focusedBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando está enfocado
+                          ),
+                          enabledBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando no está enfocado
+                          ),
+                          label: Text(
+                            "genero",
+                            style: TextStyle(
+                                color: Colors.grey.shade300,
+                                fontFamily: 'Gotham-Black',
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w900),
+                          ),
+                          errorText: "",
+                          hintStyle: const TextStyle(color: Colors.grey)),
+                    ),
+                    TextFormField(
+                      style:
+                          const TextStyle(fontSize: 20.0, color: Colors.white),
+                      controller: telefonoController,
+                      decoration: InputDecoration(
+                          focusColor: Colors.white,
+                          fillColor: Colors.white,
+                          hoverColor: Colors.white,
+                          focusedBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando está enfocado
+                          ),
+                          enabledBorder: const UnderlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Colors
+                                    .white), // Color del borde cuando no está enfocado
+                          ),
+                          label: Text(
+                            "Telefono",
+                            style: TextStyle(
+                                color: Colors.grey.shade300,
+                                fontFamily: 'Gotham-Black',
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w900),
+                          ),
+                          errorText: "",
+                          hintStyle: const TextStyle(color: Colors.grey)),
                     ),
                     const SizedBox(
                       height: 25.0,

@@ -9,8 +9,9 @@ class InputPerfil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       style: TextStyle(fontSize: 20.0, color: Colors.white),
+
       decoration: InputDecoration(
           focusColor: Colors.white,
           fillColor: Colors.white,

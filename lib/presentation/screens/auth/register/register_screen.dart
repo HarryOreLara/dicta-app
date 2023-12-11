@@ -17,6 +17,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final passwordConfirmationController = TextEditingController();
+
+  @override
+  void dispose() {
+    usernameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    passwordConfirmationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -38,11 +48,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
         return Scaffold(
           body: Container(
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-              Colors.blue.shade900,
-              Colors.blue.shade800,
-              Colors.blue.shade400,
+              Color.fromARGB(255, 0, 0, 0),
+              Color.fromARGB(255, 0, 0, 0),
+              Color.fromARGB(255, 0, 0, 0),
               Colors.white,
             ])),
             child: Column(
@@ -101,6 +111,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                                 child: TextFormField(
                                   controller: usernameController,
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return 'Este campo es obligatorio';
+                                    }
+                                    if (value.length > 15) {
+                                      return 'Su username es muy grande';
+                                    }
+                                    if (value.length <= 4) {
+                                      return 'Su username es muy pequeño';
+                                    }
+                                    return null;
+                                  },
                                   decoration: const InputDecoration(
                                     errorStyle: TextStyle(
                                       color: Colors.red,
@@ -135,6 +157,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                                 child: TextFormField(
                                   controller: emailController,
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return 'Este campo es obligatorio';
+                                    }
+                                    if (value.length > 25) {
+                                      return 'Su email es muy grande';
+                                    }
+                                    final emailRegex = RegExp(
+                                        r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$');
+                                    if (!emailRegex.hasMatch(value)) {
+                                      return 'Ingrese un correo electrónico válido';
+                                    }
+                                    return null;
+                                  },
                                   decoration: const InputDecoration(
                                     errorStyle: TextStyle(
                                       color: Colors.red,
@@ -169,6 +205,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                                 child: TextFormField(
                                   controller: passwordController,
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return 'Este campo es obligatorio';
+                                    }
+                                    if (value.length > 20) {
+                                      return 'Su contraseña es muy grande';
+                                    }
+                                    return null;
+                                  },
                                   decoration: const InputDecoration(
                                     errorStyle: TextStyle(
                                       color: Colors.red,
@@ -203,6 +248,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ),
                                 child: TextFormField(
                                   controller: passwordConfirmationController,
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return 'Este campo es obligatorio';
+                                    }
+                                    if (value.length > 25) {
+                                      return 'Su contraseña es muy grande';
+                                    }
+                                    return null;
+                                  },
                                   decoration: const InputDecoration(
                                     errorStyle: TextStyle(
                                       color: Colors.red,
@@ -222,23 +276,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.blueAccent,
+                                  backgroundColor:
+                                      const Color.fromARGB(255, 0, 0, 0),
                                   fixedSize: const Size.fromWidth(
                                       250), // Ajusta el ancho según tus necesidades
                                 ),
                                 onPressed: () {
-                                  final usuarioModel = UsuarioModel(
-                                      username: usernameController.text.trim(),
-                                      email: emailController.text.trim(),
-                                      estado: true,
-                                      password: passwordController.text.trim(),
-                                      passwordTwo:
-                                          passwordConfirmationController.text
-                                              .trim(),
-                                      token: "token");
-                                  context.read<UsuariosBloc>().add(
-                                      RegistroUsuario(
-                                          usuarioModel: usuarioModel));
+                                  if (formKey.currentState!.validate()) {
+                                    final usuarioModel = UsuarioModel(
+                                        username:
+                                            usernameController.text.trim(),
+                                        email: emailController.text.trim(),
+                                        estado: true,
+                                        password:
+                                            passwordController.text.trim(),
+                                        passwordTwo:
+                                            passwordConfirmationController.text
+                                                .trim(),
+                                        token: "token");
+                                    context.read<UsuariosBloc>().add(
+                                        RegistroUsuario(
+                                            usuarioModel: usuarioModel));
+                                  }
                                 },
                                 child: const Text(
                                   "Registrarse",
@@ -268,7 +327,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 child: const Text(
                                   'Iniciar Sesion',
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Color.fromARGB(255, 0, 0, 0),
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
                                 ),
