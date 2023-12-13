@@ -151,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         return 'Este campo es obligatorio';
                                       }
                                       if (value.length > 15) {
-                                        return 'Su nombre es muy grande';
+                                        return 'Su contraseña es muy grande';
                                       }
                                       return null;
                                     },
