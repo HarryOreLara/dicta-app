@@ -7,10 +7,7 @@ class CursosScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Cursos"),
-      ),
+    return const Scaffold(
       body: _BodyCiudades(),
     );
   }
@@ -141,7 +138,7 @@ class __BodyCiudadesState extends State<_BodyCiudades> {
                   child: ListView.builder(
                       controller: controller,
                       itemCount: itemsData.length,
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       itemBuilder: (context, index) {
                         double scale = 1.0;
                         if (topContainer > 0.5) {

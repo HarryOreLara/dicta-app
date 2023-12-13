@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dicta_app/domain/datasource/auth/auth_datasource_domain.dart';
+
 import 'package:dicta_app/infraestructure/datasources/auth/auth_datasource_infraestructure.dart';
 import 'package:dicta_app/infraestructure/models/models.dart';
 import 'package:equatable/equatable.dart';
@@ -33,6 +34,7 @@ class UsuariosBloc extends Bloc<UsuariosEvent, UsuariosState> {
         emit(state.copyWith(loading: true));
         final registro =
             await _authDatasourceDomain.register(event.usuarioModel);
+          
         emit(state.copyWith(loading: false, succesfully: registro));
       } catch (e) {
         try {

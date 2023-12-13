@@ -12,7 +12,7 @@ class PerfilScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF000000),
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(
           children: [
             Container(
@@ -160,7 +160,8 @@ class PerfilScreen extends StatelessWidget {
                 ],
               ),
             ),
-            InvertedElegantClipPath2(),
+            // InvertedElegantClipPath2(),
+            _FormPerfil()
           ],
         ),
       ),
@@ -233,252 +234,327 @@ class _FormPerfil extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: SizedBox(
-              child: Form(
-                key: formKey,
-                child: Column(
-                  children: [
-                    TextFormField(
-                      style:
-                          const TextStyle(fontSize: 20.0, color: Colors.white),
-                      controller: nombreController,
-                      decoration: InputDecoration(
-                          focusColor: Colors.white,
-                          fillColor: Colors.white,
-                          hoverColor: Colors.white,
-                          focusedBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando está enfocado
-                          ),
-                          enabledBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando no está enfocado
-                          ),
-                          label: Text(
-                            "Nombres",
-                            style: TextStyle(
-                                color: Colors.grey.shade300,
-                                fontFamily: 'Gotham-Black',
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w900),
-                          ),
-                          errorText: "",
-                          hintStyle: const TextStyle(color: Colors.grey)),
-                    ),
-                    TextFormField(
-                      style:
-                          const TextStyle(fontSize: 20.0, color: Colors.white),
-                      controller: apellidoPatController,
-                      decoration: InputDecoration(
-                          focusColor: Colors.white,
-                          fillColor: Colors.white,
-                          hoverColor: Colors.white,
-                          focusedBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando está enfocado
-                          ),
-                          enabledBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando no está enfocado
-                          ),
-                          label: Text(
-                            "Apellido Paterno",
-                            style: TextStyle(
-                                color: Colors.grey.shade300,
-                                fontFamily: 'Gotham-Black',
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w900),
-                          ),
-                          errorText: "",
-                          hintStyle: const TextStyle(color: Colors.grey)),
-                    ),
-                    TextFormField(
-                      style:
-                          const TextStyle(fontSize: 20.0, color: Colors.white),
-                      controller: apellidoMatController,
-                      decoration: InputDecoration(
-                          focusColor: Colors.white,
-                          fillColor: Colors.white,
-                          hoverColor: Colors.white,
-                          focusedBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando está enfocado
-                          ),
-                          enabledBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando no está enfocado
-                          ),
-                          label: Text(
-                            "Apellido Materno",
-                            style: TextStyle(
-                                color: Colors.grey.shade300,
-                                fontFamily: 'Gotham-Black',
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w900),
-                          ),
-                          errorText: "",
-                          hintStyle: const TextStyle(color: Colors.grey)),
-                    ),
-                    TextFormField(
-                      style:
-                          const TextStyle(fontSize: 20.0, color: Colors.white),
-                      controller: dniController,
-                      decoration: InputDecoration(
-                          focusColor: Colors.white,
-                          fillColor: Colors.white,
-                          hoverColor: Colors.white,
-                          focusedBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando está enfocado
-                          ),
-                          enabledBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando no está enfocado
-                          ),
-                          label: Text(
-                            "Dni",
-                            style: TextStyle(
-                                color: Colors.grey.shade300,
-                                fontFamily: 'Gotham-Black',
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w900),
-                          ),
-                          errorText: "",
-                          hintStyle: const TextStyle(color: Colors.grey)),
-                    ),
-                    TextFormField(
-                      style:
-                          const TextStyle(fontSize: 20.0, color: Colors.white),
-                      controller: edadController,
-                      decoration: InputDecoration(
-                          focusColor: Colors.white,
-                          fillColor: Colors.white,
-                          hoverColor: Colors.white,
-                          focusedBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando está enfocado
-                          ),
-                          enabledBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando no está enfocado
-                          ),
-                          label: Text(
-                            "Edad",
-                            style: TextStyle(
-                                color: Colors.grey.shade300,
-                                fontFamily: 'Gotham-Black',
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w900),
-                          ),
-                          errorText: "",
-                          hintStyle: const TextStyle(color: Colors.grey)),
-                    ),
-                    TextFormField(
-                      style:
-                          const TextStyle(fontSize: 20.0, color: Colors.white),
-                      controller: generoController,
-                      decoration: InputDecoration(
-                          focusColor: Colors.white,
-                          fillColor: Colors.white,
-                          hoverColor: Colors.white,
-                          focusedBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando está enfocado
-                          ),
-                          enabledBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando no está enfocado
-                          ),
-                          label: Text(
-                            "genero",
-                            style: TextStyle(
-                                color: Colors.grey.shade300,
-                                fontFamily: 'Gotham-Black',
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w900),
-                          ),
-                          errorText: "",
-                          hintStyle: const TextStyle(color: Colors.grey)),
-                    ),
-                    TextFormField(
-                      style:
-                          const TextStyle(fontSize: 20.0, color: Colors.white),
-                      controller: telefonoController,
-                      decoration: InputDecoration(
-                          focusColor: Colors.white,
-                          fillColor: Colors.white,
-                          hoverColor: Colors.white,
-                          focusedBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando está enfocado
-                          ),
-                          enabledBorder: const UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors
-                                    .white), // Color del borde cuando no está enfocado
-                          ),
-                          label: Text(
-                            "Telefono",
-                            style: TextStyle(
-                                color: Colors.grey.shade300,
-                                fontFamily: 'Gotham-Black',
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w900),
-                          ),
-                          errorText: "",
-                          hintStyle: const TextStyle(color: Colors.grey)),
-                    ),
-                    const SizedBox(
-                      height: 25.0,
-                    ),
-                    FilledButton.icon(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.white),
-                        foregroundColor: MaterialStateProperty.all(
-                            const Color.fromARGB(255, 0, 102, 185)),
-                        padding: MaterialStateProperty.all(const EdgeInsets
-                            .symmetric(
-                            vertical: 15,
-                            horizontal:
-                                40)), // Ajusta los valores para el espaciado interno
-                        minimumSize: MaterialStateProperty.all(const Size(
-                            200, 50)), // Ajusta el tamaño mínimo del botón
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: [
+                TextFormField(
+                  style: const TextStyle(fontSize: 20.0, color: Colors.white),
+                  controller: nombreController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Este campo es obligatorio';
+                    }
+                    if (value.length > 15) {
+                      return 'Su nombre es muy grande';
+                    }
+                    if (!RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                      return 'Ingrese solo letras';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                      focusColor: Colors.white,
+                      fillColor: Colors.white,
+                      hoverColor: Colors.white,
+                      focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando está enfocado
                       ),
-                      onPressed: () async {
-                        print("Lazando el evento registrar persona");
-                      },
-                      icon: const Icon(Icons.person),
-                      label: const Text(
-                        "Actualizar",
-                        style: TextStyle(fontSize: 20),
+                      enabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando no está enfocado
                       ),
-                    ),
-                  ],
+                      label: Text(
+                        "Nombres",
+                        style: TextStyle(
+                            color: Colors.grey.shade300,
+                            fontFamily: 'Gotham-Black',
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w900),
+                      ),
+                      errorText: "",
+                      hintStyle: const TextStyle(color: Colors.grey)),
                 ),
-              ),
+                TextFormField(
+                  style: const TextStyle(fontSize: 20.0, color: Colors.white),
+                  controller: apellidoPatController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Este campo es obligatorio';
+                    }
+                    if (value.length > 15) {
+                      return 'Su apellido es muy grande';
+                    }
+                    if (!RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                      return 'Ingrese solo letras';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                      focusColor: Colors.white,
+                      fillColor: Colors.white,
+                      hoverColor: Colors.white,
+                      focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando está enfocado
+                      ),
+                      enabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando no está enfocado
+                      ),
+                      label: Text(
+                        "Apellido Paterno",
+                        style: TextStyle(
+                            color: Colors.grey.shade300,
+                            fontFamily: 'Gotham-Black',
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w900),
+                      ),
+                      errorText: "",
+                      hintStyle: const TextStyle(color: Colors.grey)),
+                ),
+                TextFormField(
+                  style: const TextStyle(fontSize: 20.0, color: Colors.white),
+                  controller: apellidoMatController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Este campo es obligatorio';
+                    }
+                    if (value.length > 15) {
+                      return 'Su apellido es muy grande';
+                    }
+                    if (!RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                      return 'Ingrese solo letras';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                      focusColor: Colors.white,
+                      fillColor: Colors.white,
+                      hoverColor: Colors.white,
+                      focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando está enfocado
+                      ),
+                      enabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando no está enfocado
+                      ),
+                      label: Text(
+                        "Apellido Materno",
+                        style: TextStyle(
+                            color: Colors.grey.shade300,
+                            fontFamily: 'Gotham-Black',
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w900),
+                      ),
+                      errorText: "",
+                      hintStyle: const TextStyle(color: Colors.grey)),
+                ),
+                TextFormField(
+                  style: const TextStyle(fontSize: 20.0, color: Colors.white),
+                  controller: dniController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Este campo es obligatorio';
+                    }
+                    if (value.length > 15 || value.length < 5) {
+                      return 'Formado de dni incorrecto';
+                    }
+                    if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+                      return 'Ingrese solo números';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                      focusColor: Colors.white,
+                      fillColor: Colors.white,
+                      hoverColor: Colors.white,
+                      focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando está enfocado
+                      ),
+                      enabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando no está enfocado
+                      ),
+                      label: Text(
+                        "Dni",
+                        style: TextStyle(
+                            color: Colors.grey.shade300,
+                            fontFamily: 'Gotham-Black',
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w900),
+                      ),
+                      errorText: "",
+                      hintStyle: const TextStyle(color: Colors.grey)),
+                ),
+                TextFormField(
+                  style: const TextStyle(fontSize: 20.0, color: Colors.white),
+                  controller: edadController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Este campo es obligatorio';
+                    }
+                    if (value.length > 3 || value.length <= 1) {
+                      return 'Formado de edad incorrecto';
+                    }
+                    if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+                      return 'Ingrese solo números';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                      focusColor: Colors.white,
+                      fillColor: Colors.white,
+                      hoverColor: Colors.white,
+                      focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando está enfocado
+                      ),
+                      enabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando no está enfocado
+                      ),
+                      label: Text(
+                        "Edad",
+                        style: TextStyle(
+                            color: Colors.grey.shade300,
+                            fontFamily: 'Gotham-Black',
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w900),
+                      ),
+                      errorText: "",
+                      hintStyle: const TextStyle(color: Colors.grey)),
+                ),
+                TextFormField(
+                  style: const TextStyle(fontSize: 20.0, color: Colors.white),
+                  controller: generoController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Este campo es obligatorio';
+                    }
+                    if (value.length > 15 || value.length <= 6) {
+                      return 'Tamaño de genero incorrecto';
+                    }
+                    if (!RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                      return 'Ingrese solo letras';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                      focusColor: Colors.white,
+                      fillColor: Colors.white,
+                      hoverColor: Colors.white,
+                      focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando está enfocado
+                      ),
+                      enabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando no está enfocado
+                      ),
+                      label: Text(
+                        "genero",
+                        style: TextStyle(
+                            color: Colors.grey.shade300,
+                            fontFamily: 'Gotham-Black',
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w900),
+                      ),
+                      errorText: "",
+                      hintStyle: const TextStyle(color: Colors.grey)),
+                ),
+                TextFormField(
+                  style: const TextStyle(fontSize: 20.0, color: Colors.white),
+                  controller: telefonoController,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Este campo es obligatorio';
+                    }
+                    if (value.length > 18 || value.length <= 4) {
+                      return 'Formado de telefono incorrecto';
+                    }
+                    if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+                      return 'Ingrese solo números';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                      focusColor: Colors.white,
+                      fillColor: Colors.white,
+                      hoverColor: Colors.white,
+                      focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando está enfocado
+                      ),
+                      enabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .white), // Color del borde cuando no está enfocado
+                      ),
+                      label: Text(
+                        "Telefono",
+                        style: TextStyle(
+                            color: Colors.grey.shade300,
+                            fontFamily: 'Gotham-Black',
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w900),
+                      ),
+                      errorText: "",
+                      hintStyle: const TextStyle(color: Colors.grey)),
+                ),
+                const SizedBox(
+                  height: 25.0,
+                ),
+                FilledButton.icon(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
+                    foregroundColor: MaterialStateProperty.all(
+                        const Color.fromARGB(255, 0, 102, 185)),
+                    padding: MaterialStateProperty.all(const EdgeInsets
+                        .symmetric(
+                        vertical: 15,
+                        horizontal:
+                            40)), // Ajusta los valores para el espaciado interno
+                    minimumSize: MaterialStateProperty.all(const Size(
+                        200, 50)), // Ajusta el tamaño mínimo del botón
+                  ),
+                  onPressed: () async {
+                    if (formKey.currentState!.validate()) {
+                      print("Lazando el evento registrar persona");
+                    }
+                    print("NO VALIDO");
+                  },
+                  icon: const Icon(Icons.person),
+                  label: const Text(
+                    "Actualizar",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ],
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }

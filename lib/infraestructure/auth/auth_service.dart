@@ -8,6 +8,11 @@ class AuthService {
     prefs.setString('userId', userId);
   }
 
+  void saveEmail(String email) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('email', email);
+  }
+
   void savePersonaId(String personaId) async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setString('personaId', personaId);
@@ -29,11 +34,17 @@ class AuthService {
     return prefs.getString('personaId');
   }
 
+  Future<String?> getEmail() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('email');
+  }
+
 // Borrar datos al cerrar sesión
   void clearUserCredentials() async {
     final prefs = await SharedPreferences.getInstance();
     prefs.remove('token');
     prefs.remove('userId');
     prefs.remove('personaId');
+    prefs.remove('email');
   }
 }
