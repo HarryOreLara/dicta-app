@@ -13,7 +13,7 @@ factory Secciones.fromMap(Map<String, dynamic> map) {
   return Secciones(
     id: map["_id"] as String,
     titulo: map["titulo"] as String,
-    clases: (map["clases"] as List<dynamic>)
+    clases: (map["clases"] as List<dynamic>? ?? [])
         .map((clase) => Clases.fromMap(clase))
         .toList(),
   );

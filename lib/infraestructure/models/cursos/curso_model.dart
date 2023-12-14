@@ -41,21 +41,26 @@ class CursoModel extends Curso {
 
   CursoModel.frommap(DataMap map)
       : this(
-            id: map["_id"] as String,
-            nombre: map["nombre"] as String,
-            precio: (map["precio"] is int) ? (map["precio"] as int).toDouble() : map["precio"] as double,
-            categoria: map["categoria"] as String,
-            descripcion: map["descripcion"] as String,
-            nivel: map["nivel"] as String,
-            subcategoria: map["subcategoria"] as String,
-            fechaPublicacion: map["fechaPublicacion"] as String,
-            imagencurso: map["imagencurso"] as String,
-            estado: map["estado"] as String,
-            idioma: map["idioma"] as String,
-            nombreCreador: map["nombreCreador"] as String,
-            secciones: (map["secciones"] as List<dynamic>)
-                .map((seccion) => Secciones.fromMap(seccion))
-                .toList());
+          id: map["_id"] as String,
+          nombre: map["nombre"] as String,
+          precio: map["precio"] != null
+              ? (map["precio"] is int
+                  ? (map["precio"] as int).toDouble()
+                  : map["precio"] as double)
+              : 0.0,
+          categoria: map["categoria"] as String,
+          descripcion: map["descripcion"] as String,
+          nivel: map["nivel"] as String,
+          subcategoria: map["subcategoria"] as String,
+          fechaPublicacion: map["fechaPublicacion"] as String,
+          imagencurso: map["imagencurso"] as String,
+          estado: map["estado"] as String,
+          idioma: map["idioma"] as String,
+          nombreCreador: map["nombreCreador"] as String,
+          secciones: (map["secciones"] as List<dynamic>? ?? [])
+              .map((seccion) => Secciones.fromMap(seccion))
+              .toList(),
+        );
 
   CursoModel copyWith(
       {String? id,
